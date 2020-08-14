@@ -4,6 +4,7 @@ import pl.employee.model.Employee;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class Company {
     private Map<String, Employee> company = new HashMap<>();
@@ -23,6 +24,15 @@ public class Company {
     }
 
     public void getListOfEmployees(){
+        Set<String> companySet = company.keySet();
+        for (String s : companySet) {
+            System.out.println(company.get(s));
+        }
+
+    }
+
+    public void getEmployee(String key){
+        System.out.println(company.get(key));
     }
 
 }
