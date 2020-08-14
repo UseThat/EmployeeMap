@@ -1,3 +1,5 @@
+package pl.employee.data;
+
 public class Employee {
     private String firstName;
     private String lastName;
