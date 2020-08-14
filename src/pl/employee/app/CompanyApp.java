@@ -10,9 +10,9 @@ import java.util.Scanner;
 public class CompanyApp {
 
     private static Scanner scanner = new Scanner(System.in);
-
+    private static  Company amrest = new Company();
     public static void main(String []args){
-        Company amrest = new Company();
+
         System.out.println("Welcome in aplication Amrest Company:");
 
         int choose;
@@ -27,8 +27,15 @@ public class CompanyApp {
                     scanner.close();
                     break;
                 case ADD:
+                    addEmployee();
+                    break;
 
-
+                case SEARCH:
+                    searchByFirstLastName();
+                    break;
+                case SHOW_ALL:
+                    amrest.getListOfEmployees();
+                    break;
                 default:
                     System.out.println("We don't have that option!");
             }
@@ -65,7 +72,26 @@ public class CompanyApp {
     }
 
     public static void addEmployee(){
-        System.out.println();
+        String firstName, lastName;
+        double salary;
+        System.out.println("First Name: ");
+        firstName = scanner.nextLine();
+        System.out.println("Last Name: ");
+        lastName = scanner.nextLine();
+        System.out.println("Salary: ");
+        salary = scanner.nextDouble();
+        scanner.nextLine();
+        amrest.addEmployee(firstName,lastName,salary);
+    }
+
+    public static void searchByFirstLastName(){
+        String firstName, lastName;
+        double salary;
+        System.out.println("First Name: ");
+        firstName = scanner.nextLine();
+        System.out.println("Last Name: ");
+        lastName = scanner.nextLine();
+        amrest.getEmployee(firstName+ " "+lastName);
     }
 
 }
